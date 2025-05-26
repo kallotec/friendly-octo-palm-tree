@@ -15,7 +15,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: TrackMyJob
+        working-directory: .
 
     steps:
       - uses: actions/checkout@v4
@@ -25,7 +25,7 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: TrackMyJob
+      - name: Restore
         run: dotnet restore TrackMyJob.sln
 
       - name: Build
