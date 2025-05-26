@@ -5,11 +5,15 @@
   <PropertyGroup>
     <DefaultNamespace>TrackMyJob.AppHost</DefaultNamespace>
     <OutputType>Exe</OutputType>
+    <IsAspireHost>true</IsAspireHost>
     <UserSecretsId>b74a1388-7499-4c21-a3b0-4ebe5b27f400</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost" />
+    <PackageReference Include="Aspire.Hosting.NodeJs" />
+    
+    <ProjectReference Include="..\TrackMyJob.API\TrackMyJob.API.csproj" />
   </ItemGroup>
 
 </Project>
