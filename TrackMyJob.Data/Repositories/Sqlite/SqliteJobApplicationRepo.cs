@@ -13,9 +13,15 @@ public class SqliteJobApplicationRepo : IJobApplicationRepo
         return inserted.Entity.Id!;
     }
 
-    public async Task<JobApplication[]> GetByUserId(string userId)
+    public async Task<JobApplication[]> GetAll()
     {
         using var context = new SqliteDbContext();
         return await context.JobApplications.ToArrayAsync();
+    }
+
+    public async Task<JobApplication?> GetById(string id)
+    {
+        using var context = new SqliteDbContext();
+        return await context.JobApplications.FindAsync(id);
     }
 }

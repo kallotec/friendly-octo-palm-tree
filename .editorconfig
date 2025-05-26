@@ -201,6 +201,11 @@ end_of_line = crlf
 dotnet_diagnostic.S101.severity = none
 dotnet_diagnostic.CA1707.severity = none
 
+[TrackMyJob.API/Controllers/*]
+# CA1848: Use the LoggerMessage delegates
+dotnet_diagnostic.CA1848.severity = none
+
+
 # GENERAL CUSTOMIZATIONS
 [*.cs]
 
@@ -215,3 +220,4 @@ dotnet_diagnostic.CA2007.severity = none
 
 # S2325: Methods and properties that don't access instance data should be static
 dotnet_diagnostic.S2325.severity = none
+

@@ -1,32 +1,39 @@
-using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using TrackMyJob.API.Infrastructure;
 using TrackMyJob.API.Models;
 using TrackMyJob.Domain.Repos;
 namespace TrackMyJob.API.Controllers;
 
-[ApiController]
 [Route("api/[controller]")]
-public class ApplicationsController(IJobApplicationRepo jobApplicationRepo) : ControllerBase
+public class ApplicationsController(IJobApplicationRepo jobApplicationRepo) 
+        : ApiControllerBase
 {
     [HttpGet]
-    public async Task<JobApplicationViewModel[]> Get()
+    public async Task<JobApplicationViewModel[]> GetAll()
     {
-        var results = await jobApplicationRepo.GetByUserId(userId: "abc");
+        var results = await jobApplicationRepo.GetAll();
         var mappedResults = results.Select(r => new JobApplicationViewModel(r.Id!, r.CompanyName, r.PositionTitle)).ToArray();
         return mappedResults;
+    }
+    
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(string id)
+    {
+        var result = await jobApplicationRepo.GetById(id);
+        if (result == null)
+            return base.NotFound();
+
+        var mappedResults = JobApplicationViewModel.Map(result);
+        return new JsonResult(mappedResults);
     }
 
     [HttpPost]
     public async Task<IActionResult> Post(JobApplicationCreateModel model)
     {
         ArgumentNullException.ThrowIfNull(model);
+        var id = await jobApplicationRepo.Insert(model.Map());
 
-        if (!ModelState.IsValid)
-            return CustomResponses.CreateBadRequestResult(["blah"]);
-
-        var newId = await jobApplicationRepo.Insert(model.Map());
-
-        return new OkObjectResult(new { newId });
+        return base.CreatedAtAction(nameof(GetById), new { id }, new { id });
     }
 }

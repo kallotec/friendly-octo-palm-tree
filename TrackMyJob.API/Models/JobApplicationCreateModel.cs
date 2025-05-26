@@ -5,7 +5,10 @@ namespace TrackMyJob.API.Models;
 public class JobApplicationCreateModel
 {
     [Required]
+    [MinLength(3, ErrorMessage = "Company name should be at least 3 chars long")]
     public required string CompanyName { get; set; }
+    [Required]
+    [MinLength(3, ErrorMessage = "Position title should be at least 3 chars long")]
     public required string PositionTitle { get; set; }
 
     public JobApplication Map() => new()
