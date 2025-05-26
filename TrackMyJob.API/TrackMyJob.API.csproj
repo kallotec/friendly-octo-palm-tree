@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TrackMyJob.ServiceDefaults\TrackMyJob.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\TrackMyJob.Domain\TrackMyJob.Domain.csproj" />
+    <ProjectReference Include="..\TrackMyJob.Data\TrackMyJob.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>

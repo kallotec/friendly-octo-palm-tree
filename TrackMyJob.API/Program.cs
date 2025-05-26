@@ -1,11 +1,15 @@
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using TrackMyJob.Domain.Repos;
+using TrackMyJob.Domain.Repos.Sqlite;
 using TrackMyJob.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 builder.Services.AddControllers();
+builder.Services.AddLogging();
+injectServices(builder.Services);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(setupSwaggerDocs);
 builder.Services.AddOpenApi();
@@ -28,6 +32,11 @@ app.MapControllers();
 // start application
 await app.RunAsync().ConfigureAwait(continueOnCapturedContext: false);
 
+
+void injectServices(IServiceCollection services)
+{
+    services.AddTransient<IJobApplicationRepo, SqliteJobApplicationRepo>();
+}
 
 void setupSwaggerDocs(SwaggerGenOptions opts)
 {

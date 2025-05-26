@@ -194,11 +194,24 @@ end_of_line = lf
 [*.{cmd,bat}]
 end_of_line = crlf
 
-# static analaysis customizations
+# SPECIFIC CUSTOMIZATIONS
+
+[TrackMyJob.Data/Migrations/*]
+# S101: Types should be named in PascalCase
+dotnet_diagnostic.S101.severity = none
+dotnet_diagnostic.CA1707.severity = none
+
+# GENERAL CUSTOMIZATIONS
+[*.cs]
 
 # S6966: Awaitable method should be used
 dotnet_diagnostic.S6966.severity = none
 
 # CA1515: Consider making public types internal
-[*.cs]
 dotnet_diagnostic.CA1515.severity = none
+
+# CA2007: Consider calling ConfigureAwait on the awaited task
+dotnet_diagnostic.CA2007.severity = none
+
+# S2325: Methods and properties that don't access instance data should be static
+dotnet_diagnostic.S2325.severity = none

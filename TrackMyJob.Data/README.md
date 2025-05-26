@@ -1,12 +1,4 @@
-# TrackMyJob.Data
-
-## First time run
-
-Creates and migrates the db
-
-`dotnet ef database update`
-
-## Creating new migrations
+# Migrations
 
 Ensure the tools are installed
 
