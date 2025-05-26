@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <DefaultNamespace>TrackMyJob.Data</DefaultNamespace>
   </PropertyGroup>
 
 </Project>

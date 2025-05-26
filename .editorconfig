@@ -160,6 +160,7 @@ file_header_template = Licensed to the .NET Foundation under one or more agreeme
 dotnet_diagnostic.CA2025.severity = none
 
 # C++ Files
+
 [*.{cpp,h,in}]
 curly_bracket_next_line = true
 indent_brace_style = Allman
@@ -193,4 +194,11 @@ end_of_line = lf
 [*.{cmd,bat}]
 end_of_line = crlf
 
-# static anya
+# static analaysis customizations
+
+# S6966: Awaitable method should be used
+dotnet_diagnostic.S6966.severity = none
+
+# CA1515: Consider making public types internal
+[*.cs]
+dotnet_diagnostic.CA1515.severity = none
