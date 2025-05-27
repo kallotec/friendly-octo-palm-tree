@@ -9,11 +9,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyJob.API", "TrackMyJo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyJob.Data", "TrackMyJob.Data\TrackMyJob.Data.csproj", "{68183797-601F-433C-B341-8C37100ECCBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyJob.Domain.UnitTests", "TrackMyJob.Domain.UnitTests\TrackMyJob.Domain.UnitTests.csproj", "{DA872672-5C91-463B-A57B-03F453853AF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyJob.Domain.Tests", "TrackMyJob.Domain.Tests\TrackMyJob.Domain.Tests.csproj", "{DA872672-5C91-463B-A57B-03F453853AF0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyJob.AppHost", "TrackMyJob.AppHost\TrackMyJob.AppHost.csproj", "{CBB4CAC9-1FD1-4C51-8746-5347BEC73403}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyJob.ServiceDefaults", "TrackMyJob.ServiceDefaults\TrackMyJob.ServiceDefaults.csproj", "{DAF82F20-E77B-4C3A-9BB2-3A54CF54CEB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyJob.API.Tests", "TrackMyJob.API.Tests\TrackMyJob.API.Tests.csproj", "{29EFF79A-F641-47CB-9C6D-63EAB0FEF936}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +99,18 @@ Global
 		{DAF82F20-E77B-4C3A-9BB2-3A54CF54CEB2}.Release|x64.Build.0 = Release|Any CPU
 		{DAF82F20-E77B-4C3A-9BB2-3A54CF54CEB2}.Release|x86.ActiveCfg = Release|Any CPU
 		{DAF82F20-E77B-4C3A-9BB2-3A54CF54CEB2}.Release|x86.Build.0 = Release|Any CPU
+		{29EFF79A-F641-47CB-9C6D-63EAB0FEF936}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29EFF79A-F641-47CB-9C6D-63EAB0FEF936}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29EFF79A-F641-47CB-9C6D-63EAB0FEF936}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{29EFF79A-F641-47CB-9C6D-63EAB0FEF936}.Debug|x64.Build.0 = Debug|Any CPU
+		{29EFF79A-F641-47CB-9C6D-63EAB0FEF936}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{29EFF79A-F641-47CB-9C6D-63EAB0FEF936}.Debug|x86.Build.0 = Debug|Any CPU
+		{29EFF79A-F641-47CB-9C6D-63EAB0FEF936}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29EFF79A-F641-47CB-9C6D-63EAB0FEF936}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29EFF79A-F641-47CB-9C6D-63EAB0FEF936}.Release|x64.ActiveCfg = Release|Any CPU
+		{29EFF79A-F641-47CB-9C6D-63EAB0FEF936}.Release|x64.Build.0 = Release|Any CPU
+		{29EFF79A-F641-47CB-9C6D-63EAB0FEF936}.Release|x86.ActiveCfg = Release|Any CPU
+		{29EFF79A-F641-47CB-9C6D-63EAB0FEF936}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
