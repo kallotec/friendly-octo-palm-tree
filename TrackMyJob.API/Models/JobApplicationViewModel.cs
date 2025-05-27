@@ -2,7 +2,7 @@ using TrackMyJob.Domain.Models;
 
 namespace TrackMyJob.API.Models;
 
-public record JobApplicationViewModel(string Id, string CompanyName, string PositionTitle)
+public sealed record JobApplicationViewModel(string Id, string CompanyName, string PositionTitle)
 {
     public static JobApplicationViewModel Map(JobApplication jobApplication)
     {

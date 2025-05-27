@@ -1,5 +1,6 @@
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using TrackMyJob.Data;
 using TrackMyJob.Domain.Repos;
 using TrackMyJob.Domain.Repos.Sqlite;
 using TrackMyJob.ServiceDefaults;
@@ -34,7 +35,8 @@ await app.RunAsync().ConfigureAwait(continueOnCapturedContext: false);
 
 void injectServices(IServiceCollection services)
 {
-    services.AddTransient<IJobApplicationRepo, SqliteJobApplicationRepo>();
+    services.AddScoped<IJobApplicationRepo, SqliteJobApplicationRepo>();
+    services.AddScoped<SqliteDbContext>();
 }
 
 void setupSwaggerDocs(SwaggerGenOptions opts)
