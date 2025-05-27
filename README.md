@@ -20,3 +20,7 @@ Add a migration when you modify the model
 Apply the migration to update the database:
 
 `dotnet ef database update`
+
+## Assumptions
+
+- No business logic in requirements yet, so have omitted any `Services`
