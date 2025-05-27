@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyJob.API", "TrackMyJo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyJob.Data", "TrackMyJob.Data\TrackMyJob.Data.csproj", "{68183797-601F-433C-B341-8C37100ECCBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyJob.UnitTests", "TrackMyJob.UnitTests\TrackMyJob.UnitTests.csproj", "{DA872672-5C91-463B-A57B-03F453853AF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyJob.Domain.UnitTests", "TrackMyJob.Domain.UnitTests\TrackMyJob.Domain.UnitTests.csproj", "{DA872672-5C91-463B-A57B-03F453853AF0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrackMyJob.AppHost", "TrackMyJob.AppHost\TrackMyJob.AppHost.csproj", "{CBB4CAC9-1FD1-4C51-8746-5347BEC73403}"
 EndProject

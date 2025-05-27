@@ -5,7 +5,6 @@ using TrackMyJob.Domain.Repos.Sqlite;
 using TrackMyJob.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
-
 builder.AddServiceDefaults();
 builder.Services.AddControllers();
 builder.Services.AddLogging();

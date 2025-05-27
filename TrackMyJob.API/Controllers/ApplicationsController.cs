@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using TrackMyJob.API.Infrastructure;
 using TrackMyJob.API.Models;
 using TrackMyJob.Domain.Repos;
