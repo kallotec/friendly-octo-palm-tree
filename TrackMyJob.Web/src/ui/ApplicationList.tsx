@@ -1,10 +1,24 @@
 import * as React from 'react';
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
-import { getMyApplications } from '@/data/api';
+import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
+import { deleteApplicationById, getApplications } from '@/data/api';
+import { revalidatePath } from 'next/cache';
 
 export async function ApplicationList() {
 
-    const appList = await getMyApplications();
+    const appList = await getApplications();
+
+    if (appList.length === 0) {
+        return (
+            <div>No applications found</div>
+        )
+    }
+
+    async function handleDeleteApplication(form: FormData) {
+        "use server";
+        const id = form.get('id') as string;
+        await deleteApplicationById(id);
+        revalidatePath('/');
+    }
 
     return (
         <TableContainer component={Paper}>
@@ -19,15 +33,18 @@ export async function ApplicationList() {
                 </TableHead>
                 <TableBody>
                     {appList.map((item) => (
-                        <TableRow
-                            key={item.id}
-                        >
+                        <TableRow key={item.id}>
                             <TableCell component="th" scope="row">
                                 {item.companyName}
                             </TableCell>
                             <TableCell align="right">{item.positionTitle}</TableCell>
                             <TableCell align="right">{item.appliedAt}</TableCell>
-                            <TableCell align="right">(actions)</TableCell>
+                            <TableCell align="right">
+                                <form action={handleDeleteApplication}>
+                                    <input type='hidden' name='id' value={item.id} />
+                                    <Button type='submit'>Delete</Button>
+                                </form>
+                            </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>

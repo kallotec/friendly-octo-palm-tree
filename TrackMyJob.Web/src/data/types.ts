@@ -1,7 +1,7 @@
 
 export type jobApplicationEntry = {
-    id: string,
+    id: string | undefined,
     companyName: string,
     positionTitle: string,
-    appliedAt: string
+    appliedAt: string | undefined
 };

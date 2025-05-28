@@ -6,9 +6,6 @@ export default async function Home() {
     <Container maxWidth="md">
       <Typography variant="h4" component="h1">Job Applications</Typography>
       <Divider />
-      <Typography variant="body1">
-        No applications found, create one (here)
-      </Typography>
       <ApplicationList />
     </Container>
   );
