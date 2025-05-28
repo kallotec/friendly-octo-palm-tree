@@ -1,9 +1,10 @@
 # Migrations
 
-Ensure the tools are installed
+## First time setup
 
-`dotnet tool install --global dotnet-ef`
-`dotnet tool update --global dotnet-ef`
+Run: `setup.ps1`
+
+## Creating new migrations
 
 Add a migration when you modify the model
 

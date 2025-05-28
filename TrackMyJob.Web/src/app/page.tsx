@@ -1,21 +1,10 @@
+import { jobApplicationEntry } from "@/data/types";
 import { Container, Divider, ListItemButton, ListItemText, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
-import NextLink from 'next/link';
+import { getMyApplications } from '@/data/api';
 
-export default function Home() {
+export default async function Home() {
 
-  type jobApplicationEntry = {
-    id:string,
-    companyName:string,
-    positionTitle:string,
-    appliedAt:string
-  };
-
-  const rows:jobApplicationEntry[] = [
-    { id: '1', companyName: 'Microsoft', positionTitle: 'Manager', appliedAt: '2025-03-11' },
-    { id: '2', companyName: 'Atlassian', positionTitle: 'Manager', appliedAt: '2025-03-13' },
-    { id: '3', companyName: 'Trade Me', positionTitle: 'Manager', appliedAt: '2025-03-14' },
-    { id: '4', companyName: 'Statistics NZ', positionTitle: 'Manager', appliedAt: '2025-03-15' },
-  ].sort((a, b) => b.appliedAt.localeCompare(a.appliedAt));
+  const rows:jobApplicationEntry[] = await getMyApplications();
 
   return (
     <Container maxWidth="md">
