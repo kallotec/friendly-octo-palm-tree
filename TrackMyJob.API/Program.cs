@@ -1,8 +1,11 @@
+using Forge.Data.Infrastructure;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using TrackMyJob.Data;
+using TrackMyJob.Domain.Infrastructure;
 using TrackMyJob.Domain.Repos;
 using TrackMyJob.Domain.Repos.Sqlite;
+using TrackMyJob.Domain.Services;
 using TrackMyJob.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -37,6 +40,8 @@ await app.RunAsync().ConfigureAwait(continueOnCapturedContext: false);
 void injectServices(IServiceCollection services)
 {
     services.AddScoped<IJobApplicationRepo, SqliteJobApplicationRepo>();
+    services.AddScoped<IClock, RealClock>();
+    services.AddScoped<JobApplier>();
     services.AddScoped<SqliteDbContext>();
 }
 

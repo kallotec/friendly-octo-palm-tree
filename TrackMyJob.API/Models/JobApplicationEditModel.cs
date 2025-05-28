@@ -13,7 +13,6 @@ public sealed class JobApplicationEditModel
     [MinLength(3, ErrorMessage = "Position title should be at least 3 chars long")]
     public required string PositionTitle { get; set; }
 
-
     public JobApplication Map() => new()
     {
         CompanyName = CompanyName,

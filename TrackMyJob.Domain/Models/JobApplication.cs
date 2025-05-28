@@ -7,5 +7,5 @@ public class JobApplication
     public string? Id { get; set; }
     public required string CompanyName { get; set; }
     public required string PositionTitle { get; set; }
-    public required long AppliedAtUtcTicks { get; set; }
+    public long AppliedAtUtcTicks { get; set; }
 }
