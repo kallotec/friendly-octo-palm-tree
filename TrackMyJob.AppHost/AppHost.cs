@@ -1,13 +1,11 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
-var webapi = builder.AddProject<Projects.TrackMyJob_API>("webapi")
-    .WithExternalHttpEndpoints();
+var webapi = builder.AddProject<Projects.TrackMyJob_API>("webapi");
 
 builder.AddNpmApp("react", "../TrackMyJob.Web")
     .WithReference(webapi)
     .WaitFor(webapi)
     .WithEnvironment("BROWSER", "none") // Disable opening browser on npm start
-    .WithHttpEndpoint(env: "PORT")
     .WithExternalHttpEndpoints()
     .PublishAsDockerFile();
 

@@ -24,8 +24,9 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler();
+    app.UseHttpsRedirection();
 }
-app.UseHttpsRedirection();
+
 app.UseAuthorization();
 app.MapControllers();
 
