@@ -32,13 +32,14 @@ public class SqliteJobApplicationRepo(SqliteDbContext context) : IJobApplication
         if (!(jobApplication.Id?.Length > 0))
             throw new InvalidOperationException("Can't update as the entity's id is not set");
 
-        var existingCount = await context.JobApplications.CountAsync(a => a.Id == jobApplication.Id);
-        if (existingCount == 0)
-            return false;
+        var existingCount = await context.JobApplications
+            .Where(a => a.Id == jobApplication.Id)
+            .ExecuteUpdateAsync(m => m
+                .SetProperty(p => p.PositionTitle, jobApplication.PositionTitle)
+                .SetProperty(p => p.CompanyName, jobApplication.CompanyName)
+            );
 
-        context.Entry(jobApplication).State = EntityState.Modified;
-        await context.SaveChangesAsync();
-        return true;
+        return (existingCount == 1);
     }
 
     public async Task<bool> Delete(string id)

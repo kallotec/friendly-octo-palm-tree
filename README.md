@@ -8,3 +8,4 @@ Run: `setup.ps1`
 
 - No business logic in requirements yet, so have omitted any `Services`
 - Descoped timezone conversion, all dates are utc
+- Descoped concurrency checking for db updates etc
