@@ -2,17 +2,21 @@ using Microsoft.AspNetCore.Mvc;
 using TrackMyJob.API.Infrastructure;
 using TrackMyJob.API.Models;
 using TrackMyJob.Domain.Repos;
+using TrackMyJob.Domain.Services;
 namespace TrackMyJob.API.Controllers;
 
 [Route("api/[controller]")]
-public class ApplicationsController(IJobApplicationRepo jobApplicationRepo)
+public class ApplicationsController(JobApplier jobApplier, IJobApplicationRepo jobApplicationRepo)
         : ApiControllerBase
 {
     [HttpGet]
     public async Task<JobApplicationViewModel[]> GetAll()
     {
         var results = await jobApplicationRepo.GetAll();
-        var mappedResults = results.Select(r => new JobApplicationViewModel(r.Id!, r.CompanyName, r.PositionTitle)).ToArray();
+        var mappedResults = results
+            .Select(JobApplicationViewModel.Map)
+            .ToArray();
+
         return mappedResults;
     }
 
@@ -35,7 +39,7 @@ public class ApplicationsController(IJobApplicationRepo jobApplicationRepo)
     {
         ArgumentNullException.ThrowIfNull(model);
 
-        var id = await jobApplicationRepo.Insert(model.Map());
+        var id = await jobApplier.Apply(model.CompanyName, model.PositionTitle);
 
         return base.CreatedAtAction(nameof(GetById), new { id }, new { id });
     }
