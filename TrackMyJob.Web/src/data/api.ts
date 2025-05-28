@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { jobApplicationEntry } from './types';
+import { jobApplicationEntry } from './apitypes';
 
 axios.defaults.baseURL = process.env.services__webapi__http__0;
 
@@ -17,6 +17,19 @@ export async function getApplicationById(id: string): Promise<jobApplicationEntr
     try {
         const response = await axios.get<jobApplicationEntry>(`api/applications/${id}`);
         return response.data;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
+}
+
+export async function createApplication(newApp: jobApplicationEntry): Promise<string | null> {
+    try {
+        const response = await axios.post(`api/applications`, newApp);
+        var success = (response.status == 201); // created at
+        if (!success)
+            return null;
+        return response.data.id ?? null;
     } catch (error) {
         console.error(error);
         return null;

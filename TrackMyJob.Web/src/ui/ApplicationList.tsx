@@ -21,7 +21,7 @@ export async function ApplicationList() {
     }
 
     return (
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} sx={{margin: 1}}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                     <TableRow>
